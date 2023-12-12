@@ -17,7 +17,7 @@ computerCheck = CWC.computerWordChecker()
 letterBag = LB.letterBag()
 
 # make the dictionary
-doc = open('scrabbleDictionary.txt', 'r')
+doc = open('russian.txt', 'r')
 document = doc.read().lower()
 dictionary = set(document.split('\n'))
 doc.close()
@@ -141,8 +141,8 @@ def run(width=1000, height=600):
                     score = maxCombo[0]
                     lettersPlayed = maxCombo[1]
                     combos = maxCombo[2]
-                    x.data.message2 = 'Combo score: ' + str(score) + ', Letters played: ' + str(lettersPlayed)
-                    x.data.message3 = 'Click anywhere to start computer turn.'
+                    x.data.message2 = 'Итоговые очки: ' + str(score) + ', Слов сыграно: ' + str(lettersPlayed)
+                    x.data.message3 = 'Кликните где нибудь для хода компьютера.'
                     boardKeeper.changeBoard(lettersPlayed, combos)
                     humanPlayer.addPoints(score)
                     x.changeScore(humanPlayer.points, True)
@@ -160,11 +160,11 @@ def run(width=1000, height=600):
                     if len(humanPlayer.letterHand) == 0:
                         x.data.endOfGame == True    # reached end of game
                 else:
-                    x.data.message2 = "Invalid human turn. Click on a blue box or a button."
+                    x.data.message2 = "Неверный ход!. Кликните на синее поле или кнопку."
 
         else:
-            x.data.message1 = "It's the human's turn"
-            x.data.message2 = 'Click on a blue box.'
+            x.data.message1 = "Ваша очередь ходить"
+            x.data.message2 = 'Кликните по сенему полю.'
             x.data.humanTurn = True
             x.data.computerTurn = False
 
